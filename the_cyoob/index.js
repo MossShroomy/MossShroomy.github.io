@@ -5,8 +5,7 @@ function webglStart() {
 		textures: cubeTexture,
 		texCoords: UVmap.cube
 	})
-	console.log("woh")
-	alert("it's loaded")
+	
 function grab(e) {
 	pos = {
 		x: e.x,
