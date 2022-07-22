@@ -1,9 +1,11 @@
 @keyframes slide {
 	from {
 		left: 0px;
+		top: 0px;
 	}
 	to {
 		left: 500px;
+		top: 200px;
 	}
 }
 
@@ -14,8 +16,9 @@ h1{
 	color: #FA5EB2;
 	position: relative;
 	left: 500px;
+	top: 200px;
 	animation-name: slide;
-	animation-duration: 10s;
+	animation-duration: 300s;
 }
 h2{
 	color: #FA5EB2;
