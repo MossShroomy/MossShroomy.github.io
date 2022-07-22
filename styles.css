@@ -1,8 +1,21 @@
+@keyframes slide {
+	from {
+		left: 0px;
+	}
+	to {
+		left: 500px;
+	}
+}
+
 body{
 	background-color: #E5FFFA
 }
 h1{
 	color: #FA5EB2;
+	position: relative;
+	left: 500px;
+	animation-name: slide;
+	animation-duration: 10s;
 }
 h2{
 	color: #FA5EB2;
