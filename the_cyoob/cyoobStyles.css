@@ -1,0 +1,7 @@
+body {
+	background-color: #E5FFFA;
+}
+
+#glCanvas {
+	touch-action: none;
+}
