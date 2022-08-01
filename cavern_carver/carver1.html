@@ -1,0 +1,31 @@
+<html>
+<head>
+	<title>Cavern Carver 1</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src="carver1.js"></script>
+	<script src="perlin.js"></script>
+	<link rel="stylesheet" href="carverStyles.css">
+</head>
+<body onload="startup()">
+	<h1>
+		Part 1: Setting Scopes
+	</h1>
+	<p>
+		Cavern Carver is to be a 3d simulation of stone being eroded by water. The stone will be a 3d array that is static unless affected by the water. The water will be similar to that found in falling sand games, such as Powder Toy.
+	</p>
+	<p>
+		Stone Hardness in this example is determined by a perlin noise function.
+	</p>
+	<button onclick="newStone()">Randomize</button>
+	<br>
+	<canvas id="stoneCanvas" width="380" height="380"></canvas>
+	<br><br>
+	<p>
+		This scan algorithm checks each tile layer by layer and executes a function on it. In this example it flips a boolean. It checks the tiles in a layer in a random order to avoid horizontal bias.
+	</p>
+	<p>
+		An array of active tiles can be manipulated to only check necessary tiles. In this example tiles within a specific rectangle are excluded.
+	</p>
+	<canvas id="scanCanvas" width="380" height="380"></canvas>
+</body>
+</html>
