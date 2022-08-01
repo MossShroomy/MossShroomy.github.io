@@ -1,5 +1,5 @@
 function webglStart() {
-	var pos, cubeTexture = "textures/grass_cube.jpg"
+	var pos, cubeTexture = "/resources/textures/grass_cube.jpg"
 	var cyoob = new PhiloGL.O3D.Cube({
 		//colors: [1,0,0,1],
 		textures: cubeTexture,
