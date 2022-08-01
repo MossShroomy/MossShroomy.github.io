@@ -10,10 +10,10 @@ const noiseScale = {
 
 var scanCanvas
 var scanDraw
-var scanToDraw
+var scanToDraw // ARRAY OF TILES TO DRAW OVER
 var scanMap
-var scanList
-var scanListTemp
+var scanList // 2D ARRAY OF ACTIVE TILES
+var scanListTemp // ARRAY OF PROCESSED TILES IN THE CURRENT LAYER
 var layer
 
 function startup() {
@@ -48,12 +48,13 @@ function populateStone() {
 }
 
 function drawStone() {
-	var tile = { // SIZE OF EACH TILE IN PX
+	var tile = { // SIZE OF TILES IN PX
 		x: Math.floor(stoneCanvas.width/stoneMap.length),
 		y: Math.floor(stoneCanvas.height/stoneMap[0].length)
 	}
 	for (var a = 0; a < stoneMap.length; a++) {
 		for (var b = 0; b < stoneMap[0].length; b++) {
+			// COLOR OF STONE IS CALCULATED FROM THE HARDNESS
 			var saturation = (1-stoneMap[a][b])*100
 			var hue  = saturation/2
 			stoneDraw.fillStyle = "hsl("+hue+","+saturation+"%,50%)"
@@ -92,7 +93,7 @@ function populateScan() {
 			scanMap[a].push(true)
 			scanToDraw.push({x:a,y:b})
 			if (a<10 || a>20 || b<20 || b>35) {
-				scanList[b].push(a)
+				scanList[b].push(a) // ACTIVATES ALL TILES EXLUDING THE RECTANGLE
 			}
 		}
 	}
@@ -111,19 +112,19 @@ function drawScan() {
 			scanDraw.fillStyle = "hsl(0,50%,70%)"
 		}
 		scanDraw.fillRect(pos.x*tile.x,pos.y*tile.y,tile.x,tile.y)
-	}
+	} // ITERATES THROUGH ALL CHANGED TILES
 }
 
 function stepScan() {
 	if (scanList[layer].length > 0) {
-		var i = Math.floor(Math.random()*scanList[layer].length)
-		var pos = scanList[layer][i]
+		var i = Math.floor(Math.random()*scanList[layer].length) // SELECT RANDOM TILE TO PROCESS
+		var pos = scanList[layer][i] // GET X POSITION
 		scanMap[pos][layer] = !scanMap[pos][layer]
-		scanToDraw.push({x:pos,y:layer})
-		scanListTemp.push(scanList[layer][i])
-		scanList[layer].splice(i,1)
-	} else {
-		scanList[layer] = [...scanListTemp]
+		scanToDraw.push({x:pos,y:layer}) // SET THE TILE TO BE DRAWN
+		scanListTemp.push(scanList[layer][i]) // SET THE TILE TO BE ACTIVATED NEXT ITERATION
+		scanList[layer].splice(i,1) // DEACTIVATE THE TILE FOR THIS ITERATION
+	} else { // THE LAYER IS COMPLETE
+		scanList[layer] = [...scanListTemp] // READY THE LAYER FOR NEXT ITERATION
 		scanListTemp = []
 		layer -= 1
 		if (layer < 0) {
