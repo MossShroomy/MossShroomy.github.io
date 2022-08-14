@@ -1,0 +1,28 @@
+<html>
+<head>
+	<title>Cavern Carver 2</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src="carver2.js"></script>
+	<script src="/resources/mossLib.js"></script>
+	<link rel="stylesheet" href="carverStyles.css">
+</head>
+<body onload="startup()">
+	<h1>
+		Part 2: Water is Wet
+	</h1>
+	<p>
+		The water in this simulation based on a list of priorities, complimented by a small level of randomness.
+	</p>
+	<p>
+		The water will first attempt to move into an empty space, prioritizing straight down, then diagonally down, and finally to the side. The edge of the screen counts as an empty space for this check, but will delete the water.
+	</p>
+	<p>
+		If there are no empty spaces available, but there are adjacent water tiles, the water will randomly decide to swap with one of them, or to stay in the same place.
+	</p>
+	<p>
+		Water keeps track of the last direction it moved or swapped in. If faced with a random choice that includes that direction as an option, it will choose that direction.
+	</p>
+	<canvas id="mapCanvas" width="380" height="760"></canvas>
+	<a href="https://mossshroomy.github.io/cavern_carver/carver1">Part 1</a>
+</body>
+</html>
