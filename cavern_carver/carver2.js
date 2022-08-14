@@ -27,7 +27,7 @@ function startup() {
 	mapDraw = mapCanvas.getContext("2d")
 	stoneFormation.onload = function() {
 		newMap()}
-	stoneFormation.src = "stone_formation.png"
+	stoneFormation.src = "/resources/textures/stone_formation.png"
 }
 
 function newMap() {
