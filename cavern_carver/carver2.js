@@ -18,7 +18,7 @@ var tileMap // MAP OF WATER, STONE, AND AIR TILES
 var drawList // ARRAY OF TILES TO DRAW OVER
 var waterList // 2D ARRAY OF WATER COORDINATES
 var waterListTemp // ARRAY OF PROCESSED WATER IN THE CURRENT LAYER
-var rainRate = 0.12 // WATER SPAWN CHANCE
+var rainRate = 0 // WATER SPAWN CHANCE
 
 var stoneFormation = new Image()
 
