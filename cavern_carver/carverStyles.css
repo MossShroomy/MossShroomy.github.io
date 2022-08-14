@@ -10,3 +10,7 @@ button {
 	background-color: hsl(190,20%,80%);
 	font-size: 24px;
 }
+a {
+	font-size: 24px;
+	color: hsl(190,80%,60%);
+}
