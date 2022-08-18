@@ -14,10 +14,10 @@ const air = {
 
 var mapCanvas
 var mapDraw
-var tileMap // MAP OF WATER, STONE, AND AIR TILES
+var tileMap // 2D MAP OF TILES
 var drawList // ARRAY OF TILES TO DRAW OVER
 var waterList // 2D ARRAY OF WATER COORDINATES
-var waterListTemp // ARRAY OF PROCESSED WATER IN THE CURRENT LAYER
+var waterListTemp // 2D ARRAY OF PROCESSED WATER
 var rainRate = 0 // WATER SPAWN CHANCE
 
 var stoneFormation = new Image()
@@ -31,7 +31,7 @@ function startup() {
 }
 
 function newMap() {
-	stoneFormation = createImageData(stoneFormation)
+	stoneFormation = createImageData(stoneFormation) // RECEIVE DATA FROM IMAGE
 	populateMap()
 	drawMap()
 	window.setInterval(process, tickrate)
@@ -43,17 +43,17 @@ function populateMap() {
 	waterList = []
 	waterListTemp = []
 	for (var i = 0; i < size.y; i++) {
-		waterList.push([])
+		waterList.push([]) // PREPARE EMPTY WATER LIST
 		waterListTemp.push([])
 	}
 	for (var a = 0; a < size.x; a++) {
-		tileMap.push([])
+		tileMap.push([]) // PREPARE EMPTY TILE MAP
 		for (var b = 0; b < size.y; b++) {
-			tileMap[a].push({
-				...air
+			tileMap[a].push({ // FILL WITH AIR
+				...air 
 			})
 			var i = b * 4 * size.x + a * 4
-			if (stoneFormation.data[i] == 255) {
+			if (stoneFormation.data[i] == 255) { // TURN IMAGE INTO STONE
 				tileMap[a][b].substance = "stone"
 				drawList.push({
 					x: a, y: b
