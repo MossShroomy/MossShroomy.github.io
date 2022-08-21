@@ -16,8 +16,8 @@ var mapCanvas
 var mapDraw
 var tileMap // 2D MAP OF TILES
 var drawList // ARRAY OF TILES TO DRAW OVER
-var waterList // 2D ARRAY OF WATER COORDINATES
-var waterListTemp // 2D ARRAY OF PROCESSED WATER
+var waterList // 2D ARRAY CONTAINING ALL WATER TILES IN EACH LAYER
+var waterListTemp // 2D ARRAY OF PROCESSED WATER TILES IN EACH LAYER
 var rainRate = 0 // WATER SPAWN CHANCE
 
 var stoneFormation = new Image()
