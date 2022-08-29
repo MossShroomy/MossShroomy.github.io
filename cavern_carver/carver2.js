@@ -191,7 +191,7 @@ function checkMove(pos, substance) {
 			if (newPos.x >= 0 && newPos.x < size.x && newPos.y >= 0 && newPos.y < size.y) {
 				// IS THE POSITION IN BOUNDS
 				if (tileMap[newPos.x][newPos.y].substance == substance) {
-					// IS THE POSITION EMPTY
+					// IS THE POSITION VALID
 					return currentMove
 				}
 			} else {
